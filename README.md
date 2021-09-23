@@ -1,5 +1,7 @@
 # react-bubbly-effect-button
+> Bubbling effect on buttons
 
+[![NPM](https://img.shields.io/npm/v/react-bubbly-effect-button.svg)](https://www.npmjs.com/package/react-bubbly-effect-button) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 ## Intro
 
 <p align="center">
