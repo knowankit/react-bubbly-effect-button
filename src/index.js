@@ -7,6 +7,6 @@ const onClick = () => {
 }
 
 ReactDom.render(
-  <ReactBubblyEffectButton text="Hello World!" color='#fff' bgColor='#ff0081' onClick={onClick} />,
+  <ReactBubblyEffectButton text="Hello World!" color='#fff' bgColor='#26292c' onClick={onClick} />,
   document.getElementById("app")
 );

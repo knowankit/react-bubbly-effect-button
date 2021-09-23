@@ -84,14 +84,14 @@ const ReactBubblyEffectButton = ({ text, onClick, bgColor, color }) => {
             background-repeat: no-repeat;
           }
 
-          .bubbly-button:before {
+          .bubbly-button::before {
             display: none;
             top: -75%;
             background-image: radial-gradient(circle, ${bgColor} 20%, transparent 20%), radial-gradient(circle, transparent 20%, ${bgColor} 20%, transparent 30%), radial-gradient(circle, ${bgColor} 20%, transparent 20%), radial-gradient(circle, ${bgColor} 20%, transparent 20%), radial-gradient(circle, transparent 10%, ${bgColor} 15%, transparent 20%), radial-gradient(circle, ${bgColor} 20%, transparent 20%), radial-gradient(circle, ${bgColor} 20%, transparent 20%), radial-gradient(circle, ${bgColor} 20%, transparent 20%), radial-gradient(circle, ${bgColor} 20%, transparent 20%);
             background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
           }
 
-          .bubbly-button:after {
+          .bubbly-button::after {
             display: none;
             bottom: -75%;
             background-image: radial-gradient(circle, ${bgColor} 20%, transparent 20%), radial-gradient(circle, ${bgColor} 20%, transparent 20%), radial-gradient(circle, transparent 10%, ${bgColor} 15%, transparent 20%), radial-gradient(circle, ${bgColor} 20%, transparent 20%), radial-gradient(circle, ${bgColor} 20%, transparent 20%), radial-gradient(circle, ${bgColor} 20%, transparent 20%), radial-gradient(circle, ${bgColor} 20%, transparent 20%);
@@ -100,7 +100,7 @@ const ReactBubblyEffectButton = ({ text, onClick, bgColor, color }) => {
 
           .bubbly-button:active {
             transform: scale(0.9);
-            background-color: #e60074;
+            background-color: ${bgColor};
             box-shadow: 0 2px 25px ${hexToRGB(bgColor, 0.2)};
           }
 

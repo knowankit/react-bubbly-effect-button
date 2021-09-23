@@ -1,13 +1,14 @@
 import "./App.css";
 import ReactBubblyEffectButton from "react-bubbly-effect-button";
-// import "example-component/dist/index.css";
 
 const onClick = () => {
   console.log('Clicked')
 }
 
 function App() {
-  return <ReactBubblyEffectButton text="Hello World!" color='#fff' bgColor='#ff0081' onClick={onClick} />;
+  return <div className='container'>
+  <ReactBubblyEffectButton text="Click here" color='#fff' bgColor='#26292c' onClick={onClick} />
+  </div>;
 }
 
 export default App;
