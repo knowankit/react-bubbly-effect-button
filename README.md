@@ -51,7 +51,7 @@ export default BubblyButton;
 
 ## Info
 
-This module was bootstrapped with [build-react-npm](https://github.com/knowankit/build-react-nom).
+This module was bootstrapped with [build-react-npm](https://github.com/knowankit/build-react-npm).
 
 ## License
 
