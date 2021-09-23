@@ -1,32 +1,39 @@
 import React from "react";
 
-const ReactBubblyEffectButton = ({ text, onClick, bgColor, color }) => {
-  const handleClick = (e) => {
-    animate(e)
-    onClick()
-  }
+const ReactBubblyEffectButton = ({
+  text = "Dummy",
+  onClick = () => {},
+  bgColor = "#ff2e2e",
+  color = "white"
+}) => {
+  const handleClick = e => {
+    animate(e);
+    onClick();
+  };
 
-  const animate = (e) => {
+  const animate = e => {
     e.preventDefault;
 
     // reset animation
-    e.target.classList.remove('animate');
-    
-    e.target.classList.add('animate');
+    e.target.classList.remove("animate");
+
+    e.target.classList.add("animate");
 
     setTimeout(() => {
-      e.target.classList.remove('animate');
-    },700);
+      e.target.classList.remove("animate");
+    }, 700);
 
     const bubblyButtons = document.getElementsByClassName("bubbly-button");
 
     for (var i = 0; i < bubblyButtons.length; i++) {
-      bubblyButtons[i].addEventListener('click', animate, false);
+      bubblyButtons[i].addEventListener("click", animate, false);
     }
   };
 
   const hexToRGB = (h, opacity) => {
-    let r = 0, g = 0, b = 0;
+    let r = 0,
+      g = 0,
+      b = 0;
 
     // 3 digits
     if (h.length == 4) {
@@ -34,24 +41,25 @@ const ReactBubblyEffectButton = ({ text, onClick, bgColor, color }) => {
       g = "0x" + h[2] + h[2];
       b = "0x" + h[3] + h[3];
 
-    // 6 digits
+      // 6 digits
     } else if (h.length == 7) {
       r = "0x" + h[1] + h[2];
       g = "0x" + h[3] + h[4];
       b = "0x" + h[5] + h[6];
     }
-    
-    return "rgba("+ +r + "," + +g + "," + +b + "," + opacity + ")";
-  }
+
+    return "rgba(" + +r + "," + +g + "," + +b + "," + opacity + ")";
+  };
 
   return (
     <>
-      <button className='bubbly-button' onClick={handleClick}>{text}</button>
-      <style jsx='true'>
-      {
-        `
+      <button className="bubbly-button" onClick={handleClick}>
+        {text}
+      </button>
+      <style jsx="true">
+        {`
           .bubbly-button {
-            font-family: 'Helvetica', 'Arial', sans-serif;
+            font-family: "Helvetica", "Arial", sans-serif;
             display: inline-block;
             font-size: 1em;
             padding: 1em 2em;
@@ -72,9 +80,10 @@ const ReactBubblyEffectButton = ({ text, onClick, bgColor, color }) => {
             outline: 0;
           }
 
-          .bubbly-button:before, .bubbly-button:after {
+          .bubbly-button:before,
+          .bubbly-button:after {
             position: absolute;
-            content: '';
+            content: "";
             display: block;
             width: 140%;
             height: 100%;
@@ -87,15 +96,54 @@ const ReactBubblyEffectButton = ({ text, onClick, bgColor, color }) => {
           .bubbly-button::before {
             display: none;
             top: -75%;
-            background-image: radial-gradient(circle, ${bgColor} 20%, transparent 20%), radial-gradient(circle, transparent 20%, ${bgColor} 20%, transparent 30%), radial-gradient(circle, ${bgColor} 20%, transparent 20%), radial-gradient(circle, ${bgColor} 20%, transparent 20%), radial-gradient(circle, transparent 10%, ${bgColor} 15%, transparent 20%), radial-gradient(circle, ${bgColor} 20%, transparent 20%), radial-gradient(circle, ${bgColor} 20%, transparent 20%), radial-gradient(circle, ${bgColor} 20%, transparent 20%), radial-gradient(circle, ${bgColor} 20%, transparent 20%);
-            background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
+            background-image: radial-gradient(
+                circle,
+                ${bgColor} 20%,
+                transparent 20%
+              ),
+              radial-gradient(
+                circle,
+                transparent 20%,
+                ${bgColor} 20%,
+                transparent 30%
+              ),
+              radial-gradient(circle, ${bgColor} 20%, transparent 20%),
+              radial-gradient(circle, ${bgColor} 20%, transparent 20%),
+              radial-gradient(
+                circle,
+                transparent 10%,
+                ${bgColor} 15%,
+                transparent 20%
+              ),
+              radial-gradient(circle, ${bgColor} 20%, transparent 20%),
+              radial-gradient(circle, ${bgColor} 20%, transparent 20%),
+              radial-gradient(circle, ${bgColor} 20%, transparent 20%),
+              radial-gradient(circle, ${bgColor} 20%, transparent 20%);
+            background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%,
+              10% 10%, 15% 15%, 10% 10%, 18% 18%;
           }
 
           .bubbly-button::after {
             display: none;
             bottom: -75%;
-            background-image: radial-gradient(circle, ${bgColor} 20%, transparent 20%), radial-gradient(circle, ${bgColor} 20%, transparent 20%), radial-gradient(circle, transparent 10%, ${bgColor} 15%, transparent 20%), radial-gradient(circle, ${bgColor} 20%, transparent 20%), radial-gradient(circle, ${bgColor} 20%, transparent 20%), radial-gradient(circle, ${bgColor} 20%, transparent 20%), radial-gradient(circle, ${bgColor} 20%, transparent 20%);
-            background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
+            background-image: radial-gradient(
+                circle,
+                ${bgColor} 20%,
+                transparent 20%
+              ),
+              radial-gradient(circle, ${bgColor} 20%, transparent 20%),
+              radial-gradient(
+                circle,
+                transparent 10%,
+                ${bgColor} 15%,
+                transparent 20%
+              ),
+              radial-gradient(circle, ${bgColor} 20%, transparent 20%),
+              radial-gradient(circle, ${bgColor} 20%, transparent 20%),
+              radial-gradient(circle, ${bgColor} 20%, transparent 20%),
+              radial-gradient(circle, ${bgColor} 20%, transparent 20%);
+            background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%,
+              10% 10%, 20% 20%;
           }
 
           .bubbly-button:active {
@@ -116,37 +164,42 @@ const ReactBubblyEffectButton = ({ text, onClick, bgColor, color }) => {
 
           @keyframes topBubbles {
             0% {
-              background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
+              background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%,
+                25% 90%, 40% 90%, 55% 90%, 70% 90%;
             }
 
             50% {
-              background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%, 50% 50%, 65% 20%, 90% 30%;
+              background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%,
+                22% 50%, 50% 50%, 65% 20%, 90% 30%;
             }
 
             100% {
-              background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%, 50% 40%, 65% 10%, 90% 20%;
+              background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%,
+                22% 40%, 50% 40%, 65% 10%, 90% 20%;
               background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
             }
           }
 
           @keyframes bottomBubbles {
             0% {
-              background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%, 70% -10%, 70% 0%;
+              background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%,
+                85% -10%, 70% -10%, 70% 0%;
             }
 
             50% {
-              background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%, 105% 0%;
+              background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%,
+                95% 60%, 105% 0%;
             }
 
             100% {
-              background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%, 110% 10%;
+              background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%,
+                95% 70%, 110% 10%;
               background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
             }
           }
-        `
-      }
-    </style>
-  </>
+        `}
+      </style>
+    </>
   );
 };
 

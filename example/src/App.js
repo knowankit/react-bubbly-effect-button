@@ -7,7 +7,7 @@ const onClick = () => {
 
 function App() {
   return <div className='container'>
-  <ReactBubblyEffectButton text="Click here" color='#fff' bgColor='#26292c' onClick={onClick} />
+  <ReactBubblyEffectButton text="Click here" color='#fff' bgColor='#ff0081' onClick={onClick} />
   </div>;
 }
 
